@@ -61,13 +61,25 @@ def cleanup(path):
     if os.path.exists(path):
         shutil.rmtree(path, ignore_errors=True)
 
-FFMPEG_PATH = shutil.which("ffmpeg") or "ffmpeg"
+def get_ffmpeg_path():
+    ffmpeg_bin = shutil.which("ffmpeg")
+    if ffmpeg_bin:
+        return ffmpeg_bin
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    local_ffmpeg = os.path.join(base_dir, "bin", "ffmpeg.exe")
+    if os.path.exists(local_ffmpeg):
+        return local_ffmpeg
+    return None
 
 def convert_to_h264(input_path, output_dir):
+    ffmpeg_bin = get_ffmpeg_path()
+    if not ffmpeg_bin:
+        return input_path
+
     output_path = os.path.join(output_dir, "converted.mp4")
 
     command = [
-        FFMPEG_PATH,
+        ffmpeg_bin,
         "-y",
         "-i", input_path,
         "-c:v", "libx264",
