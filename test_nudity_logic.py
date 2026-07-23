@@ -64,7 +64,7 @@ run_test("Explicit female genitalia — score 0.65", _has_nudity([det("FEMALE_GE
 run_test("Explicit male genitalia — score 0.58", _has_nudity([det("MALE_GENITALIA_EXPOSED", 0.58)]), True)
 run_test("Anus exposure — score 0.70", _has_nudity([det("ANUS_EXPOSED", 0.70)]), True)
 run_test("Bare buttocks — BUTTOCKS_EXPOSED with no covered counterpart", _has_nudity([det("BUTTOCKS_EXPOSED", 0.77)]), True)
-run_test("Exactly at threshold — FEMALE_BREAST_EXPOSED at 0.50", _has_nudity([det("FEMALE_BREAST_EXPOSED", 0.50)]), True)
+run_test("Exactly at threshold — FEMALE_BREAST_EXPOSED at 0.52", _has_nudity([det("FEMALE_BREAST_EXPOSED", 0.52)]), True)
 run_test("Covered suppression too weak — COVERED score 0.15 (below 0.25)", _has_nudity([det("FEMALE_BREAST_EXPOSED", 0.85), det("FEMALE_BREAST_COVERED", 0.15)]), True)
 
 # Group 3: Video Frame Count Threshold

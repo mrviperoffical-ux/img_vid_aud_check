@@ -140,6 +140,7 @@ def analyze(req: AnalyzeRequest):
 
             is_nude, nude_frame = check_nudity(frames)
 
+            s3_url = None
             if is_nude and nude_frame:
                 s3_url = upload_frame(nude_frame)
 

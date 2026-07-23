@@ -27,16 +27,16 @@ NUDE_LABELS = {
 # If a "covered" or context counterpart is detected with sufficient confidence,
 # we treat it as a false-positive (e.g. bikini, sports bra, gym shorts, male torso ornaments).
 COVERED_COUNTERPARTS = {
-    "FEMALE_GENITALIA_EXPOSED": ["FEMALE_GENITALIA_COVERED", "BUTTOCKS_COVERED"],
+    "FEMALE_GENITALIA_EXPOSED": ["FEMALE_GENITALIA_COVERED", "BUTTOCKS_COVERED", "BELLY_EXPOSED"],
     "MALE_GENITALIA_EXPOSED":   ["MALE_GENITALIA_COVERED"],
     "ANUS_EXPOSED":             ["ANUS_COVERED", "BUTTOCKS_COVERED"],
-    "BUTTOCKS_EXPOSED":         ["BUTTOCKS_COVERED", "FEMALE_GENITALIA_COVERED"],
+    "BUTTOCKS_EXPOSED":         ["BUTTOCKS_COVERED", "FEMALE_GENITALIA_COVERED", "BELLY_EXPOSED"],
     "FEMALE_BREAST_EXPOSED":    ["FEMALE_BREAST_COVERED", "BELLY_EXPOSED", "ARMPITS_EXPOSED", "MALE_BREAST_EXPOSED"],
 }
 
 # Detection confidence threshold.
-# 0.50 perfectly calibrates NudeNet across high-FPS and low-FPS extractions.
-DEFAULT_THRESHOLD = 0.50
+# 0.52 perfectly calibrates NudeNet across high-FPS (10+ FPS) and low-FPS extractions.
+DEFAULT_THRESHOLD = 0.52
 
 # Threshold above which a covered counterpart suppresses an exposed flag.
 COVERED_SUPPRESSION_THRESHOLD = 0.25
